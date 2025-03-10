@@ -1,0 +1,465 @@
+***Assignment No 2***
+
+1. Student Grade Calculator
+ 
+**Algorithm: 
+ 
+Start 
+Input assignment score, midterm score, and final exam score. 
+Calculate final grade using the formula: Final Grade=(Assignment×0.3)+(Midterm×0.3)+(FinalExam×0.4)Final Grade=(Assignment×0.3)+(Midterm×0.3)+(FinalExam×0.4) 
+Check if final grade is ≥ 60:  
+If Yes, print "Pass" 
+If No, print "Fail" 
+Display final grade and pass/fail status. 
+End
+
+**Pseudocode:
+
+BEGIN 
+PRINT "Enter assignment score: " 
+INPUT assignment 
+PRINT "Enter midterm exam score: " 
+INPUT midterm 
+PRINT "Enter final exam score: " 
+INPUT final_exam 
+
+final_grade ← (assignment * 0.3) + (midterm * 0.3) + (final_exam * 0.4) 
+
+IF final_grade >= 60 THEN 
+	status ← "Pass" 
+ELSE 
+	status ← "Fail" 
+ENDIF 
+
+PRINT "Final Grade: ", final_grade 
+PRINT "Status: ", status 
+
+END
+
+
+2. ATM Banking System
+
+
+**Algorithm:
+
+Start
+Set initial balance and predefined PIN.
+Prompt user to enter PIN.
+If incorrect, display "Invalid PIN" and exit.
+Display menu options:
+1: Check Balance
+2: Deposit Money
+3: Withdraw Money
+4: Exit
+Repeat until user chooses Exit:
+If choice = 1, display balance.
+If choice = 2, input deposit amount, update balance, and display new balance.
+If choice = 3, input withdrawal amount.
+If withdrawal amount ≤ balance, deduct from balance.
+Else, display "Insufficient Funds".
+If choice = 4, exit the system.
+Else, display "Invalid choice".
+End
+
+**Pseudocode:
+
+BEGIN
+    balance ← 2000
+    PIN ← 5234  
+    
+    PRINT "Enter PIN: "
+    INPUT entered_PIN
+    
+    IF entered_PIN ≠ PIN THEN
+        PRINT "Invalid PIN"
+        EXIT
+    ENDIF
+
+    WHILE TRUE DO
+        PRINT "1. Check Balance"
+        PRINT "2. Deposit Money"
+        PRINT "3. Withdraw Money"
+        PRINT "4. Exit"
+        PRINT "Select an option: "
+        INPUT choice
+
+        IF choice = 1 THEN
+            PRINT "Current Balance: ", balance
+        ELSE IF choice = 2 THEN
+            PRINT "Enter deposit amount: "
+            INPUT deposit
+            balance ← balance + deposit
+            PRINT "New Balance: ", balance
+        ELSE IF choice = 3 THEN
+            PRINT "Enter withdrawal amount: "
+            INPUT withdraw
+            IF withdraw <= balance THEN
+                balance ← balance - withdraw
+                PRINT "New Balance: ", balance
+            ELSE
+                PRINT "Insufficient Funds"
+            ENDIF
+        ELSE IF choice = 4 THEN
+            PRINT "Thank you for using ATM!"
+            EXIT
+        ELSE
+            PRINT "Invalid choice"
+        ENDIF
+    ENDWHILE
+END
+
+
+3. Inventory Management System
+
+**Algorithm:
+
+Start
+Initialize an empty inventory list.
+Display menu options:
+1: Add Item
+2: Update Quantity
+3: Remove Item
+4: Search Item
+5: Display Inventory
+6: Exit
+Repeat until user chooses Exit:
+If choice = 1, input item details (ID, Name, Price, Quantity) and add to inventory.
+If choice = 2, input item ID and new quantity, update inventory.
+If choice = 3, input item ID and remove from inventory.
+If choice = 4, input item ID or Name, search and display item details.
+If choice = 5, display all inventory items.
+If choice = 6, exit the system.
+Else, display "Invalid choice".
+End
+
+**Pseudocode:
+
+BEGIN
+    inventory ← empty list
+
+    WHILE TRUE DO
+        PRINT "1. Add Item"
+        PRINT "2. Update Quantity"
+        PRINT "3. Remove Item"
+        PRINT "4. Search Item"
+        PRINT "5. Display Inventory"
+        PRINT "6. Exit"
+        PRINT "Enter choice: "
+        INPUT choice
+
+        IF choice = 1 THEN
+            INPUT item_id, name, price, quantity
+            ADD (item_id, name, price, quantity) TO inventory
+        ELSE IF choice = 2 THEN
+            INPUT item_id, new_quantity
+            UPDATE quantity FOR item_id
+        ELSE IF choice = 3 THEN
+            INPUT item_id
+            REMOVE item_id FROM inventory
+        ELSE IF choice = 4 THEN
+            INPUT item_id
+            SEARCH inventory FOR item_id AND PRINT details
+        ELSE IF choice = 5 THEN
+            PRINT inventory
+        ELSE IF choice = 6 THEN
+            EXIT
+        ELSE
+            PRINT "Invalid choice"
+        ENDIF
+    ENDWHILE
+END
+
+
+4. Prime Number Checker
+
+
+**Algorithm:
+
+Start
+Input a number.
+Check if number is ≤ 1:
+If Yes, print "Not a prime number" and exit.
+Loop from 2 to sqrt(number):
+If number is divisible by any value in the loop, print "Not a prime number" and exit.
+If no divisors were found, print "Prime number".
+End
+
+**Pseudocode:
+
+BEGIN
+    PRINT "Enter a number: "
+    INPUT num
+
+    IF num < 2 THEN
+        PRINT "Not a prime number"
+        EXIT
+    ENDIF
+
+    FOR i FROM 2 TO sqrt(num) DO
+        IF num MOD i = 0 THEN
+            PRINT "Not a prime number"
+            EXIT
+        ENDIF
+    ENDFOR
+
+    PRINT "Prime number"
+END
+
+
+5. Temperature Conversion Tool
+
+**Algorithm:
+
+Start
+Input temperature value.
+Input source unit (C, F, or K).
+Input target unit (C, F, or K).
+Perform conversion using appropriate formula:
+Celsius → Fahrenheit:
+	F=(C×9/5)+32
+Celsius → Kelvin: 
+	K=C+273.15
+Fahrenheit → Celsius: 
+	C=(F−32)×5/9
+Fahrenheit → Kelvin: 
+	K=(F−32)×5/9+273.15
+Kelvin → Celsius: 
+	C=K−273.15
+Kelvin → Fahrenheit: 
+	F=(K−273.15)×9/5+32
+Display the converted value.
+End
+
+
+**Pseudocode:
+
+BEGIN
+    PRINT "Enter temperature value: "
+    INPUT temp
+    PRINT "Select source unit (C/F/K): "
+    INPUT source
+    PRINT "Select target unit (C/F/K): "
+    INPUT target
+
+    IF source = "C" AND target = "F" THEN
+        result ← (temp * 9/5) + 32
+    ELSE IF source = "C" AND target = "K" THEN
+        result ← temp + 273.15
+    ELSE IF source = "F" AND target = "C" THEN
+        result ← (temp - 32) * 5/9
+    ELSE IF source = "F" AND target = "K" THEN
+        result ← (temp - 32) * 5/9 + 273.15
+    ELSE IF source = "K" AND target = "C" THEN
+        result ← temp - 273.15
+    ELSE IF source = "K" AND target = "F" THEN
+        result ← (temp - 273.15) * 9/5 + 32
+    ELSE
+        PRINT "Invalid selection"
+        EXIT
+    ENDIF
+
+    PRINT "Converted temperature: ", result
+END
+
+
+6. Library Book Management System
+
+**Algorithm:
+
+Start
+Initialize an empty book collection.
+Display menu options:
+1: Add Book
+2: Remove Book
+3: Checkout Book
+4: Return Book
+5: Search Book
+6: Display All Books
+7: Exit
+Repeat until user chooses Exit:
+If choice = 1, input book details (Title, Author, ISBN, Status), add to collection.
+If choice = 2, input book ISBN and remove from collection.
+If choice = 3, input book ISBN, mark as "Checked Out" if available.
+If choice = 4, input book ISBN, mark as "Available".
+If choice = 5, input title or author, search and display book details.
+If choice = 6, display all books.
+If choice = 7, exit the system.
+Else, display "Invalid choice".
+End
+
+
+**Pseudocode:
+
+BEGIN
+    CREATE an empty list called BookCollection
+    
+    WHILE TRUE DO
+        DISPLAY "Library Management System Menu:"
+        DISPLAY "1: Add Book"
+        DISPLAY "2: Remove Book"
+        DISPLAY "3: Checkout Book"
+        DISPLAY "4: Return Book"
+        DISPLAY "5: Search Book"
+        DISPLAY "6: Display All Books"
+        DISPLAY "7: Exit"
+        
+        INPUT choice
+        
+        IF choice = 1 THEN
+            INPUT Title, Author, ISBN
+            SET Status = "Available"
+            ADD (Title, Author, ISBN, Status) TO BookCollection
+            DISPLAY "Book added successfully"
+        
+        ELSE IF choice = 2 THEN
+            INPUT ISBN
+            FIND book with given ISBN in BookCollection
+            IF book exists THEN
+                REMOVE book from BookCollection
+                DISPLAY "Book removed successfully"
+            ELSE
+                DISPLAY "Book not found"
+        
+        ELSE IF choice = 3 THEN
+            INPUT ISBN
+            FIND book with given ISBN in BookCollection
+            IF book exists AND book.Status = "Available" THEN
+                SET book.Status = "Checked Out"
+                DISPLAY "Book checked out successfully"
+            ELSE
+                DISPLAY "Book not available"
+        
+        ELSE IF choice = 4 THEN
+            INPUT ISBN
+            FIND book with given ISBN in BookCollection
+            IF book exists AND book.Status = "Checked Out" THEN
+                SET book.Status = "Available"
+                DISPLAY "Book returned successfully"
+            ELSE
+                DISPLAY "Invalid return attempt"
+        
+        ELSE IF choice = 5 THEN
+            INPUT SearchTerm
+            SEARCH for books with matching Title OR Author in BookCollection
+            DISPLAY search results
+        
+        ELSE IF choice = 6 THEN
+            DISPLAY all books in BookCollection
+        
+        ELSE IF choice = 7 THEN
+            DISPLAY "Exiting Library Management System"
+            BREAK
+        
+        ELSE
+            DISPLAY "Invalid choice, please try again"
+    END WHILE
+END
+
+
+
+7. Fibonacci Sequence Generator
+
+
+**Algorithm:
+
+Start
+Input number of terms.
+Check if the number is ≤ 0:
+If Yes, print "Invalid Input" and exit.
+Initialize first two terms as 0 and 1.
+Loop to generate Fibonacci sequence up to given terms:
+Compute next term as sum of previous two terms.
+Store and display each term.
+End
+
+**Pseudocode:
+
+BEGIN
+    DISPLAY "Enter number of terms:"
+    INPUT n
+
+    IF n <= 0 THEN
+        DISPLAY "Invalid Input"
+        EXIT
+    
+    SET first = 0
+    SET second = 1
+    DISPLAY first, second
+
+    FOR i FROM 3 TO n DO
+        SET next = first + second
+        DISPLAY next
+        SET first = second
+        SET second = next
+    END FOR
+END
+
+
+
+8. Calendar Event Scheduler
+
+**Algorithm:
+
+Start
+Initialize an empty event list.
+Display menu options:
+1: Add Event
+2: Delete Event
+3: View Events
+4: Search Event
+5: Exit
+Repeat until user chooses Exit:
+If choice = 1, input event details (Title, Date, Time, Description) and add to list.
+If choice = 2, input event ID or title, remove from list.
+If choice = 3, display all events sorted by date.
+If choice = 4, input title or description, search and display event.
+If choice = 5, exit the system.
+Else, display "Invalid choice".
+End
+
+**Pseudocode:
+
+BEGIN
+    CREATE an empty list called EventList
+    
+    WHILE TRUE DO
+        DISPLAY "Calendar Event Scheduler Menu:"
+        DISPLAY "1: Add Event"
+        DISPLAY "2: Delete Event"
+        DISPLAY "3: View Events"
+        DISPLAY "4: Search Event"
+        DISPLAY "5: Exit"
+        
+        INPUT choice
+        
+        IF choice = 1 THEN
+            INPUT Title, Date, Time, Description
+            ADD (Title, Date, Time, Description) TO EventList
+            DISPLAY "Event added successfully"
+        
+        ELSE IF choice = 2 THEN
+            INPUT EventTitle
+            FIND event with given EventTitle in EventList
+            IF event exists THEN
+                REMOVE event from EventList
+                DISPLAY "Event deleted successfully"
+            ELSE
+                DISPLAY "Event not found"
+        
+        ELSE IF choice = 3 THEN
+            SORT EventList by Date
+            DISPLAY all events
+        
+        ELSE IF choice = 4 THEN
+            INPUT SearchTerm
+            SEARCH for events with matching Title OR Description in EventList
+            DISPLAY search results
+        
+        ELSE IF choice = 5 THEN
+            DISPLAY "Exiting Calendar Event Scheduler"
+            BREAK
+        
+        ELSE
+            DISPLAY "Invalid choice, please try again"
+    END WHILE
+END
